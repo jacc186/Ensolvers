@@ -24,7 +24,7 @@ namespace EnsolversBL.Services
         {
             var claims = new List<Claim>
             {
-                new Claim(JwtRegisteredClaimNames.NameId, user.Correo)
+                new Claim(JwtRegisteredClaimNames.NameId, user.Email)
             };
 
             var credentials = new SigningCredentials(sskey, SecurityAlgorithms.HmacSha512Signature);
@@ -32,7 +32,7 @@ namespace EnsolversBL.Services
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
-                Expires = System.DateTime.Now.AddMinutes(30),
+                Expires = System.DateTime.UtcNow.AddMinutes(30),
                 SigningCredentials = credentials
             };
 

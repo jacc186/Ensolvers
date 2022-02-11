@@ -18,9 +18,9 @@ namespace EnsolversBL.Data.Repositories
             this.context = context;
         }
 
-        public async Task<User> Login(string correo, string password)
+        public async Task<User> Login(string email, string password)
         {
-            var user = await context.Users.FirstOrDefaultAsync(u => u.Correo == correo);
+            var user = await context.Users.FirstOrDefaultAsync(u => u.Email == email);
             if (user == null)
             {
                 return null;
@@ -71,9 +71,9 @@ namespace EnsolversBL.Data.Repositories
             }
         }
 
-        public async Task<bool> UserExist(string correo)
+        public async Task<bool> UserExist(string email)
         {
-            if (await context.Users.AnyAsync(u => u.Correo == correo))
+            if (await context.Users.AnyAsync(u => u.Email == email))
                 return true;
 
             return false;

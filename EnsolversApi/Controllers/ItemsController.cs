@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using EnsolversBL.Data;
 using EnsolversBL.Models;
 using EnsolversBL.Repositories;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EnsolversApi.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ItemsController : ControllerBase
@@ -48,9 +50,9 @@ namespace EnsolversApi.Controllers
 
         // POST: api/Items
         [HttpPost]
-        public async Task<ActionResult<Item>> Post(ItemVM itemVM)
+        public async Task<ActionResult<Item>> Post(ItemPostDTO itemDTO)
         {
-            Item item = new Item(itemVM.Data);
+            Item item = new Item(itemDTO.Data);
             var task = await _repo.Add(item);
             return task;
         }

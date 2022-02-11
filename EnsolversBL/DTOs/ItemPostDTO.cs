@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EnsolversBL.Models
 {
-    public class ItemVM
+    public class ItemPostDTO
     {
         public string Data { get; set; }
     }

@@ -75,6 +75,9 @@ namespace EnsolversApi
 
             app.UseRouting();
 
+            //Authentication added
+            app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
