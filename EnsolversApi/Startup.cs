@@ -22,6 +22,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.IdentityModel;
 using System.Text;
+using EnsolversBL.Services;
 
 namespace EnsolversApi
 {
@@ -47,6 +48,7 @@ namespace EnsolversApi
                     options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IRepository<Item>, ItemRepository>();
             services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<ITokenService, TokenService>();
 
             //Configuration to use the token
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
