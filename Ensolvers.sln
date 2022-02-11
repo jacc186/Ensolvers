@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnsolversApi", "EnsolversApi\EnsolversApi.csproj", "{E4985DBD-BFCC-4E92-82A7-84942A724D2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnsolversBL", "EnsolversBL\EnsolversBL.csproj", "{B291DBBA-C17D-4E59-88C2-49D5CB2BCC3A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E4985DBD-BFCC-4E92-82A7-84942A724D2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4985DBD-BFCC-4E92-82A7-84942A724D2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4985DBD-BFCC-4E92-82A7-84942A724D2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4985DBD-BFCC-4E92-82A7-84942A724D2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B291DBBA-C17D-4E59-88C2-49D5CB2BCC3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B291DBBA-C17D-4E59-88C2-49D5CB2BCC3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B291DBBA-C17D-4E59-88C2-49D5CB2BCC3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B291DBBA-C17D-4E59-88C2-49D5CB2BCC3A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DEB929B8-B976-45BD-86EA-285B17A1F568}
+	EndGlobalSection
+EndGlobal
