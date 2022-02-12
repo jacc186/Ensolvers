@@ -1,0 +1,17 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Done</th>
+      <th>Task</th>
+      <th>Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of TaskList">
+      <td><button type="button" class="btn btn-light mr-1">Check</button></td>
+      <td>{{item.data}}</td>
+      <td><button type="button" class="btn btn-light mr-1">Edit</button></td>
+      <td><button type="button" class="btn btn-light mr-1">Delete</button></td>
+    </tr>
+  </tbody>
+</table>
