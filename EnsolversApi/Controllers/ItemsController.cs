@@ -9,12 +9,15 @@ using EnsolversBL.Data;
 using EnsolversBL.Models;
 using EnsolversBL.Repositories;
 using Microsoft.AspNetCore.Authorization;
+using EnsolversBL.DTOs;
+using Microsoft.AspNetCore.Cors;
 
 namespace EnsolversApi.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("AllowOrigin")]
     public class ItemsController : ControllerBase
     {
         private readonly IRepository<Item> _repo;
@@ -26,6 +29,7 @@ namespace EnsolversApi.Controllers
 
         // GET: api/Items
         [HttpGet]
+        [EnableCors("AllowOrigin")]
         public async Task<ActionResult<IEnumerable<Item>>> Get()
         {
             var tasks = await _repo.GetAll();
@@ -33,32 +37,24 @@ namespace EnsolversApi.Controllers
         }
 
         // PUT: api/Items/5
-        [HttpPut]
-        public async Task<IActionResult> Put(int id, Item item)
+        [HttpPut("{id}")]
+        [EnableCors("AllowOrigin")]
+        public async Task<IActionResult> Put(int id, ItemPutDTO itemPutDTO)
         {
-            var itemToUpdate = await _repo.GetById(item.ItemId);
+            var itemToUpdate = await _repo.GetById(id);
             if(itemToUpdate == null)
             {
                 return NotFound("task not found");
             }
-            itemToUpdate.Data = item.Data;
-            itemToUpdate.State = item.State;
+            itemToUpdate.Data = itemPutDTO.Data;
+            itemToUpdate.State = itemPutDTO.State;
             await _repo.Update(itemToUpdate);
             return Ok();
         }
         
-
-        // POST: api/Items
-        [HttpPost]
-        public async Task<ActionResult<Item>> Post(ItemPostDTO itemDTO)
-        {
-            Item item = new Item(itemDTO.Data);
-            var task = await _repo.Add(item);
-            return task;
-        }
-
         // DELETE: api/Items/5
         [HttpDelete("{id}")]
+        [EnableCors("AllowOrigin")]
         public async Task<IActionResult> Delete(int id)
         {
             var item = await _repo.Delete(id);
@@ -66,5 +62,16 @@ namespace EnsolversApi.Controllers
                 return Ok();
             return BadRequest();
         }
+
+        // POST: api/Items
+        [HttpPost]
+        [EnableCors("AllowOrigin")]
+        public async Task<ActionResult<Item>> Post(ItemPostDTO itemDTO)
+        {
+            Item item = new Item(itemDTO.Data);
+            var task = await _repo.Add(item);
+            return task;
+        }
+
     }
 }
