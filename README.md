@@ -9,3 +9,5 @@ OS: win32 x64
 SQL Server v18.10
 
 port allowed for Angular server "https://localhost:4200"
+
+The api contains login but i'd comment it cause I needed more time to implement it.
