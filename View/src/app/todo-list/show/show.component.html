@@ -44,7 +44,7 @@
         Edit
       </button>
     </td>
-      <td><button type="button" class="btn btn-light mr-1">Delete</button></td>
+      <td><button type="button" class="btn btn-light mr-1" (click)="deleteClick(item)">Delete</button></td>
     </tr>
   </tbody>
 </table>
@@ -52,6 +52,6 @@
   <input type="text" class="form-control todo-list-input"
   placeholder="Add your taks!" id="newEntry" [(ngModel)]="data">
   <button class="add btn btn-primary font-weight-bold todo-list-add-btn
-   mx-2"
+   mx-2" data-target="#exampleModal"
    (click)="addClick()">Add</button>
 </div>

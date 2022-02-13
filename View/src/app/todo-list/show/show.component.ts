@@ -35,9 +35,8 @@ export class ShowComponent implements OnInit {
     var val = {data: this.data};
     this.service.addTask(val).subscribe(res=>
       {
-        alert(res.toString());
+        this.ngOnInit();
       });
-      this.ngOnInit();
   }
 
   editClick(task: any)
@@ -51,10 +50,16 @@ export class ShowComponent implements OnInit {
     this.ActivateEditItem = false;
     this.refreshTaskList();
   }
-  
-  deleteClick()
-  {
 
+  deleteClick(item:any)
+  {
+    if(confirm('Are you sure?'))
+    {
+      this.service.DeleteTask(item.itemId).subscribe(data=>
+        {
+          this.ngOnInit();
+        })
+    }
   }
 
 }

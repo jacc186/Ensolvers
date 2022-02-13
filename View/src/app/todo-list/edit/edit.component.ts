@@ -1,3 +1,4 @@
+import { NgIf } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
 
@@ -24,14 +25,16 @@ export class EditComponent implements OnInit {
 
   editItem()
   {
-    var val =
     {
-      data: this.data,
-      state: this.state
-    };
-    this.service.UpdateTask(this.item.itemId,val).subscribe(res=>
+      var val =
       {
-        alert(res.toString());
-      });
+        data: this.data,
+        state: this.state
+      };
+      this.service.UpdateTask(this.item.itemId,val).subscribe(res=>
+        {
+          alert("Operation done");
+        });
+    }
   }
 }
