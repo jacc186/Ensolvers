@@ -37,15 +37,7 @@ namespace EnsolversApi
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddCors(c =>
-            {
-                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
-            });
-            services.AddCors(c =>
-            {
-                c.AddPolicy("AllowOrigin", options => options.WithOrigins("https://localhost:44328"));
-            });
+        {            
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -79,14 +71,12 @@ namespace EnsolversApi
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "EnsolversApi v1"));
             }
 
-            app.UseCors(options => options.WithOrigins("https://localhost:44328"));
-
-            app.UseCors(options => options.AllowAnyOrigin());
-
-            app.Use((context, next) =>
+            app.UseCors(options =>
             {
-                context.Items["__CorsMiddlewareInvoked"] = true;
-                return next();
+                options.WithOrigins("https://localhost:4200");
+                options.AllowAnyOrigin();
+                options.AllowAnyHeader();
+                options.AllowAnyMethod();
             });
 
             app.UseHttpsRedirection();

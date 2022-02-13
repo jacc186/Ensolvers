@@ -1,22 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
-import { AddDeleteComponent } from './todo-list/add-delete/add-delete.component';
 import { SharedService } from './shared.service';
 import {HttpClientModule} from '@angular/common/http';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { ShowComponent } from './todo-list/show/show.component';
+import { EditComponent } from './todo-list/edit/edit.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoListComponent,
-    AddDeleteComponent,
-    ShowComponent
+    ShowComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
