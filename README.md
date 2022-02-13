@@ -8,4 +8,4 @@ OS: win32 x64
 .Net core 5 
 SQL Server v18.10
 
-ports allow for cors so use this port for Angular server "https://localhost:4200"
+port allowed for Angular server "https://localhost:4200"
