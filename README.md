@@ -1,5 +1,5 @@
 # Ensolvers
-Here I code an to do list for Ensolvers
+Here I code a to do list for Ensolvers
 
 Angular CLI: 13.2.3
 Node: 16.14.0
